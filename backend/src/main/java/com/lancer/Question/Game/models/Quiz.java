@@ -1,4 +1,4 @@
-package models;
+package com.lancer.Question.Game.models;
 
 
 import jakarta.persistence.*;
@@ -55,6 +55,10 @@ public class Quiz {
 
     public void setQuestions(Set<Question> questions) {
         this.questions = questions;
+    }
+
+    public void addQuestion (Question question){
+        this.questions.add(question);
     }
 
     @Override

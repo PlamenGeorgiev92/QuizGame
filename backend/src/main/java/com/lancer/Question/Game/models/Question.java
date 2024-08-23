@@ -1,64 +1,42 @@
-package models;
-
+package com.lancer.Question.Game.models;
 
 import jakarta.persistence.*;
-
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@Table(name="questions")
+@Table(name = "questions")
 public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name ="question_id")
+    @Column(name = "question_id")
     private Integer questionId;
 
-    @Column(name ="question_content")
+    @Column(name = "question_content")
     private String content;
 
-    private List<String> answers;
+    @OneToMany(mappedBy = "question")
+
+    // TO DO: proper wat for correct answer!!! Too Tired ZzZzZzZzZ
+    private List<Answer> answers;
 
     public Question() {
     }
 
-    public Question(String content, List<String> answers) {
+    public Question(String content, List<Answer> answers) {
         this.content = content;
         this.answers = answers;
     }
 
-    public Integer getQuestionId() {
-        return questionId;
-    }
 
-    public void setQuestionId(Integer questionId) {
-        this.questionId = questionId;
-    }
 
-    public String getContent() {
-        return content;
-    }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public List<String> getAnswers() {
-        return answers;
-    }
-
-    public void setAnswers(List<String> answers) {
-        this.answers = answers;
-    }
 
     @Override
     public String toString() {
-        return "Question{" +
-                "questionId=" + questionId +
-                ", content='" + content + '\'' +
-                ", answers=" + answers +
-                '}';
+        return "Question{" + "questionId=" + questionId + ", content='" + content + '\'' + ", answers=" + answers + '}';
     }
 
     @Override
