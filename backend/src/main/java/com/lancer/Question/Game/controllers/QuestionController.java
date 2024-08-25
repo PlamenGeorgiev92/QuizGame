@@ -18,9 +18,6 @@ public class QuestionController {
         this.questionService = questionService;
     }
 
-    @PostMapping("/create")
-    public Question createQuestion (@RequestBody Question question){
-        return questionService.createQuestion(question);
-    }
+
 
 }

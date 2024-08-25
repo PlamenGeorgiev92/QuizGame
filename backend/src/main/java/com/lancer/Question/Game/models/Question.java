@@ -1,6 +1,8 @@
 package com.lancer.Question.Game.models;
 
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -18,9 +20,7 @@ public class Question {
     private String content;
 
     @OneToMany(mappedBy = "question")
-
-    // TO DO: proper wat for correct answer!!! Too Tired ZzZzZzZzZ
-    private List<Answer> answers;
+    private List<Answer> answers = new ArrayList<>();
 
     public Question() {
     }
@@ -30,9 +30,33 @@ public class Question {
         this.answers = answers;
     }
 
+    public void addAnswer (Answer answer){
+        this.answers.add(answer);
+    }
 
+    public Integer getQuestionId() {
+        return questionId;
+    }
 
+    public void setQuestionId(Integer questionId) {
+        this.questionId = questionId;
+    }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
 
     @Override
     public String toString() {

@@ -20,6 +20,15 @@ public class Answer {
     @JoinColumn(name="question_id", nullable=false)
     private Question question;
 
+    public Answer() {
+    }
+
+    public Answer(String answerText, Boolean isCorrect) {
+
+        this.answerText = answerText;
+        this.isCorrect = isCorrect;
+    }
+
     public Integer getId() {
         return id;
     }
